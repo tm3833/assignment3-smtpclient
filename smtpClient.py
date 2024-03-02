@@ -1,7 +1,4 @@
 from socket import *
-#tracy miles
-#cs-gy 6843
-#3-2-2024
 
 def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n My message"
@@ -11,9 +8,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # mailserver = 'smtp.gmail.com'
     
     # Create socket called clientSocket and establish a TCP connection with mailserver and port
-    clientSocket = socket(AF_INET, SOCK_STREAM)
-    
     # Fill in start
+    clientSocket = socket(AF_INET, SOCK_STREAM)
     clientSocket.connect((mailserver, port))
     # Fill in end
 
@@ -31,8 +27,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
       #  print('250 reply not received from server.')
 
     # Send MAIL FROM command and handle server response.
-    mailfrom = 'MAIL FROM: <tracywmiles@gmail.com>\r\n'
     # Fill in start
+    mailfrom = 'MAIL FROM: <tracywmiles@gmail.com>\r\n'
     clientSocket.send(mailfrom.encode())
     recv2 = clientSocket.recv(1024).decode()
     #print(recv2)
@@ -41,8 +37,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
 
     # Send RCPT TO command and handle server response.
-    rcptto = 'RCPT TO: <milestra000@gmail.com>\r\n'
     # Fill in start
+    rcptto = 'RCPT TO: <milestra000@gmail.com>\r\n'
     clientSocket.send(rcptto.encode())
     recv3 = clientSocket.recv(1024).decode()
     #print(recv3)
@@ -51,8 +47,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
 
     # Send DATA command and handle server response.
-    data = 'DATA\r\n'
     # Fill in start
+    data = 'DATA\r\n'
     clientSocket.send(data.encode())
     recv4 = clientSocket.recv(1024).decode()
     #print(recv4)
@@ -84,7 +80,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #if recv6[:3] != '250':
     #    print ('250 reply not received from server.')
     # Fill in end
-clientSocket.close()
+    clientSocket.close()
 
 if __name__ == '__main__':
     smtp_client(1025, '127.0.0.1')
