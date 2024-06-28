@@ -1,3 +1,7 @@
+#Tracy Miles
+#6-28-2024
+#Updated for summer 2024
+
 from socket import *
 
 def smtp_client(port=1025, mailserver='127.0.0.1'):
